@@ -31,8 +31,8 @@ The first thing we need to do is to install fetch as a dependency. In your comma
 
 ## 1.2 - Retrieve static HTTP resource
 
-@app-retrieve-static-joke In `app.js` the `fetch` constant just added is a function, and by default it will retrieve the resource at the URL provided as its only URL. Create a function named `getJoke()`. Inside of this function, use `fetch` to request a random Chuck Norris joke from `https://api.chucknorris.io/jokes/random`. The function itself returns a promise, so you will need wait for it to resolve.
+@app-retrieve-static-joke In `app.js` the `fetch` constant just added is a function, and by default it will retrieve the resource at the URL provided as its only URL. Create a function named `getJoke()`. Inside of this function, use `fetch()` to request a random Chuck Norris joke from `https://api.chucknorris.io/jokes/random`. The `fetch()` function itself returns a promise. The HTTP response is available when the promise resolves. The response containins a number of utility functions. One of these functions is `json()`, which can be used to extract the JSON-encoded object from the the response. This function also returns a promise, which when resolved provides a JSON-decoded object. Handle the response from `fetch()` by calling the `json()` function on the response, returning its promise as the return value of `getJoke()`.
 
 ## 1.3 - Extract and display just the joke text
 
-@app-extract-display-joke
+@app-retrieve-static-joke In `app.js` the `getJoke()` function returns a promise resolving into a joke object. We only want to extract the joke text itself, which is in the `value` field of this object. Write a new function, `decodeJoke()`, which takes as its only parameter the object response from `getJoke()`, and returns the joke text as a string.
